@@ -44,3 +44,30 @@ function logout() {
   localStorage.removeItem("user");
   window.location.href = "login.html";
 }
+
+
+/* BOOKING SYSTEM */
+const bookingForm = document.getElementById("bookingForm");
+
+if (bookingForm) {
+  bookingForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const booking = {
+      service: document.getElementById("service").value,
+      date: document.getElementById("date").value,
+      time: document.getElementById("time").value,
+      address: document.getElementById("address").value
+    };
+
+    localStorage.setItem("booking", JSON.stringify(booking));
+
+    document.getElementById("bookingMsg").innerText =
+      "✅ Booking Confirmed Successfully!";
+  });
+}
+
+/* DASHBOARD NAV */
+function goDashboard() {
+  window.location.href = "dashboard.html";
+}
