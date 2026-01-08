@@ -1,46 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Book a Service – FIXTINOW</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>Book Service – FIXTINOW</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="dashboard">
-  <h1>Book a Service</h1>
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <h2>Book a Service</h2>
 
-  <form id="bookingForm" class="auth-card">
-    <label>Service</label>
-    <select id="service" required>
-      <option value="">Select Service</option>
-      <option>Plumbing</option>
-      <option>Electrical</option>
-      <option>Cleaning</option>
-      <option>AC Repair</option>
-    </select>
+    <form id="bookingForm">
+      <select id="service" required>
+        <option value="">Select Service</option>
+        <option>Plumbing</option>
+        <option>Electrical</option>
+        <option>Cleaning</option>
+        <option>AC Repair</option>
+      </select>
 
-    <label>Date</label>
-    <input type="date" id="date" required>
+      <input type="date" id="date" required>
+      <input type="time" id="time" required>
+      <textarea id="address" placeholder="Service Address" required></textarea>
 
-    <label>Time</label>
-    <input type="time" id="time" required>
-
-    <label>Address</label>
-    <textarea id="address" placeholder="Enter your address" required></textarea>
-
-    <button type="submit" class="btn btn-primary btn-full">
-      Confirm Booking
-    </button>
-
-    <p id="bookingMsg"></p>
-  </form>
-
-  <br>
-  <button onclick="goDashboard()" class="btn btn-secondary">Back to Dashboard</button>
+      <button class="btn btn-primary">Confirm Booking</button>
+    </form>
+  </div>
 </div>
 
 <script src="script.js"></script>
