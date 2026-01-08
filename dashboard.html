@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
   <title>Dashboard – FIXTINOW</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<div class="dashboard">
-  <h1>Welcome to Dashboard</h1>
-  <div id="bookingDetails"></div>
 
-  <p id="userEmail"></p>
+<div class="container dashboard">
+  <h1>Dashboard</h1>
 
+  <div class="stats">
+    <div class="stat">Active Booking</div>
+    <div class="stat">Service Status: Pending</div>
+  </div>
+
+  <div class="booking-box" id="bookingDetails"></div>
+
+  <br>
   <a href="booking.html" class="btn btn-primary">Book a Service</a>
-  <br><br>
   <button onclick="logout()" class="btn btn-secondary">Logout</button>
 </div>
-
 
 <script src="script.js"></script>
 </body>
