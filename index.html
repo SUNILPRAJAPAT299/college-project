@@ -2,90 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>FIXTINOW – Home Services</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FIXTINOW – Your Trusted Home Service Partner</title>
 
-  <!-- SEO -->
-  <meta name="description" content="FIXTINOW provides reliable home services like plumbing, electrical, cleaning & AC service in Vadodara.">
-  <meta name="keywords" content="home services, plumbing, electrician, cleaning, AC service, Vadodara">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
 <header class="header">
-  <div class="container">
+  <div class="container navbar">
     <h2 class="logo">FIXTINOW</h2>
 
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#how">How It Works</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <ul class="nav-menu">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="login.html" class="btn btn-primary">Login</a></li>
+    </ul>
+
+    <div class="hamburger">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </header>
 
+<main>
 <section class="hero">
-  <div class="container">
-    <h1>Your Home, Expertly Handled</h1>
-    <p>Fast, reliable & professional home services — just one click away.</p>
-  </div>
+  <h1>Your Home, Expertly Handled</h1>
+  <p>Fast & professional home services at your doorstep</p>
 </section>
 
-<section id="how" class="steps">
-  <div class="container">
-    <h2>Get It Done in 3 Simple Steps</h2>
-
-    <div class="step-box">
-      <div class="step">
-        <i class="fas fa-mouse-pointer"></i>
-        <h3>Select Service</h3>
-        <p>Choose from trusted home services.</p>
-      </div>
-
-      <div class="step">
-        <i class="fas fa-calendar-alt"></i>
-        <h3>Schedule</h3>
-        <p>Pick date & time that suits you.</p>
-      </div>
-
-      <div class="step">
-        <i class="fas fa-couch"></i>
-        <h3>Relax</h3>
-        <p>Our experts handle the rest.</p>
-      </div>
-    </div>
+<section id="how" class="how-it-works">
+  <h2>How It Works</h2>
+  <div class="steps">
+    <div class="card"><i class="fas fa-mouse"></i>Select Service</div>
+    <div class="card"><i class="fas fa-calendar"></i>Schedule</div>
+    <div class="card"><i class="fas fa-smile"></i>Relax</div>
   </div>
 </section>
 
 <section id="services" class="services">
-  <div class="container">
-    <h2>Our Core Services</h2>
-
-    <div class="service-grid">
-      <div class="card"><i class="fas fa-wrench"></i> Plumbing</div>
-      <div class="card"><i class="fas fa-bolt"></i> Electrical</div>
-      <div class="card"><i class="fas fa-hammer"></i> Carpentry</div>
-      <div class="card"><i class="fas fa-blender"></i> Appliance Repair</div>
-      <div class="card"><i class="fas fa-snowflake"></i> AC Service</div>
-      <div class="card"><i class="fas fa-broom"></i> Cleaning</div>
-    </div>
+  <h2>Our Services</h2>
+  <div class="service-grid">
+    <div class="service">Plumbing</div>
+    <div class="service">Electrical</div>
+    <div class="service">Cleaning</div>
+    <div class="service">AC Repair</div>
   </div>
 </section>
+</main>
 
-<footer id="contact" class="footer">
-  <div class="container">
-    <p>📍 Vadodara, Gujarat</p>
-    <p>📞 +91 98765 43210</p>
-    <p>✉️ contact@fixtinow.com</p>
-    <p>© 2025 FIXTINOW</p>
-  </div>
-</footer>
-
+<script src="script.js"></script>
 </body>
 </html>
