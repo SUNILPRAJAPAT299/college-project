@@ -71,3 +71,19 @@ if (bookingForm) {
 function goDashboard() {
   window.location.href = "dashboard.html";
 }
+
+const bookingDetails = document.getElementById("bookingDetails");
+
+if (bookingDetails) {
+  const booking = JSON.parse(localStorage.getItem("booking"));
+
+  if (booking) {
+    bookingDetails.innerHTML = `
+      <h3>Your Booking</h3>
+      <p><b>Service:</b> ${booking.service}</p>
+      <p><b>Date:</b> ${booking.date}</p>
+      <p><b>Time:</b> ${booking.time}</p>
+      <p><b>Address:</b> ${booking.address}</p>
+    `;
+  }
+}
