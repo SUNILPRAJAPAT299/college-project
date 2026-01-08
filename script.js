@@ -1,84 +1,43 @@
-/* NAVBAR TOGGLE */
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-menu");
-
-if (hamburger) {
-  hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-  });
-}
-
-/* LOGIN LOGIC */
+/* LOGIN */
 const loginForm = document.getElementById("loginForm");
-
 if (loginForm) {
-  loginForm.addEventListener("submit", function (e) {
+  loginForm.addEventListener("submit", e => {
     e.preventDefault();
-
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const email = email.value;
+    const password = password.value;
 
     if (email === "admin@gmail.com" && password === "12345") {
       localStorage.setItem("user", email);
       window.location.href = "dashboard.html";
     } else {
-      document.getElementById("errorMsg").innerText =
-        "Invalid Email or Password";
+      document.getElementById("error").innerText = "Invalid credentials";
     }
   });
 }
 
-/* DASHBOARD */
-const userEmail = document.getElementById("userEmail");
-if (userEmail) {
-  const user = localStorage.getItem("user");
-  if (!user) {
-    window.location.href = "login.html";
-  } else {
-    userEmail.innerText = "Logged in as: " + user;
-  }
-}
-
-/* LOGOUT */
-function logout() {
-  localStorage.removeItem("user");
-  window.location.href = "login.html";
-}
-
-
-/* BOOKING SYSTEM */
+/* BOOKING */
 const bookingForm = document.getElementById("bookingForm");
-
 if (bookingForm) {
-  bookingForm.addEventListener("submit", function (e) {
+  bookingForm.addEventListener("submit", e => {
     e.preventDefault();
-
     const booking = {
-      service: document.getElementById("service").value,
-      date: document.getElementById("date").value,
-      time: document.getElementById("time").value,
-      address: document.getElementById("address").value
+      service: service.value,
+      date: date.value,
+      time: time.value,
+      address: address.value
     };
-
     localStorage.setItem("booking", JSON.stringify(booking));
-
-    document.getElementById("bookingMsg").innerText =
-      "✅ Booking Confirmed Successfully!";
+    alert("Booking Confirmed!");
+    window.location.href = "dashboard.html";
   });
 }
 
-/* DASHBOARD NAV */
-function goDashboard() {
-  window.location.href = "dashboard.html";
-}
-
-const bookingDetails = document.getElementById("bookingDetails");
-
-if (bookingDetails) {
+/* DASHBOARD */
+const bookingBox = document.getElementById("bookingDetails");
+if (bookingBox) {
   const booking = JSON.parse(localStorage.getItem("booking"));
-
   if (booking) {
-    bookingDetails.innerHTML = `
+    bookingBox.innerHTML = `
       <h3>Your Booking</h3>
       <p><b>Service:</b> ${booking.service}</p>
       <p><b>Date:</b> ${booking.date}</p>
@@ -86,4 +45,10 @@ if (bookingDetails) {
       <p><b>Address:</b> ${booking.address}</p>
     `;
   }
+}
+
+/* LOGOUT */
+function logout() {
+  localStorage.clear();
+  window.location.href = "login.html";
 }
