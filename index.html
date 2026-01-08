@@ -1,59 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
   <title>FIXTINOW – Home Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body>
 
 <header class="header">
-  <div class="container navbar">
-    <h2 class="logo">FIXTINOW</h2>
-
-    <ul class="nav-menu">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#how">How It Works</a></li>
-      <li><a href="login.html" class="btn btn-primary">Login</a></li>
-    </ul>
-
-    <div class="hamburger">
-      <span></span><span></span><span></span>
-    </div>
+  <div class="container">
+    <h2>FIXTINOW</h2>
+    <nav>
+      <a href="login.html">Login</a>
+    </nav>
   </div>
 </header>
 
-<main>
 <section class="hero">
-  <h1>Your Home, Expertly Handled</h1>
-  <p>Fast & professional home services at your doorstep</p>
+  <div class="container">
+    <h1>Your Home, Expertly Handled</h1>
+    <p>Book trusted professionals in minutes.</p>
+  </div>
 </section>
 
-<section id="how" class="how-it-works">
+<section class="section">
   <h2>How It Works</h2>
-  <div class="steps">
-    <div class="card"><i class="fas fa-mouse"></i>Select Service</div>
-    <div class="card"><i class="fas fa-calendar"></i>Schedule</div>
-    <div class="card"><i class="fas fa-smile"></i>Relax</div>
+  <div class="container grid">
+    <div class="card">Select Service</div>
+    <div class="card">Schedule</div>
+    <div class="card">Relax</div>
   </div>
 </section>
 
-<section id="services" class="services">
+<section class="section">
   <h2>Our Services</h2>
-  <div class="service-grid">
-    <div class="service">Plumbing</div>
-    <div class="service">Electrical</div>
-    <div class="service">Cleaning</div>
-    <div class="service">AC Repair</div>
+  <div class="container grid">
+    <div class="card">Plumbing</div>
+    <div class="card">Electrical</div>
+    <div class="card">Cleaning</div>
+    <div class="card">AC Repair</div>
   </div>
 </section>
-</main>
 
-<script src="script.js"></script>
 </body>
 </html>
