@@ -1,5 +1,4 @@
-// ================== AUTH ==================
-// ================== AUTH ==================
+// ================== LOGIN ==================
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
@@ -10,16 +9,25 @@ if (loginForm) {
     const password = document.getElementById("password").value;
     const error = document.getElementById("error");
 
-    if (email === "admin@gmail.com" && password === "12345") {
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const user = users.find(
+      u => u.email === email && u.password === password
+    );
+
+    if (user) {
       localStorage.setItem("loggedIn", "true");
-      localStorage.setItem("userEmail", email);
-      window.location.href = "index.html";   // ← HOME PAGE
+      localStorage.setItem("currentUser", email);
+
+      const redirect = localStorage.getItem("redirectAfterLogin");
+      localStorage.removeItem("redirectAfterLogin");
+
+      window.location.href = redirect ? redirect : "index.html";
     } else {
       error.innerText = "Invalid email or password";
     }
   });
 }
-
 
 // ================== PROTECT PAGES ==================
 const protectedPages = ["dashboard.html", "booking.html"];
