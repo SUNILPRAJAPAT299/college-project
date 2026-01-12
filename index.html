@@ -11,6 +11,20 @@
     <h2>FIXTINOW</h2>
     <nav id="navLinks"></nav>
 <script src="script.js"></script>
+    <script>
+const imgs = [
+  "https://i.imgur.com/4W6G2vX.png",
+  "https://i.imgur.com/W8bZQ6x.png",
+  "https://i.imgur.com/Q6K0RZk.png"
+];
+
+let i = 0;
+setInterval(()=>{
+  document.getElementById("heroImg").src = imgs[i];
+  i = (i+1) % imgs.length;
+},2000);
+</script>
+
 
   </div>
 </header>
