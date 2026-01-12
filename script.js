@@ -1,4 +1,16 @@
+// ================== AUTH GUARD ==================
+const protectedPages = ["booking.html", "dashboard.html"];
+const page = location.pathname.split("/").pop();
+
+if (protectedPages.includes(page)) {
+  if (!localStorage.getItem("loggedIn")) {
+    localStorage.setItem("redirectAfterLogin", page);
+    window.location.href = "login.html";
+  }
+}
+
 // ================== LOGIN ==================
+
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
