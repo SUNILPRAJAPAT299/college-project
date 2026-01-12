@@ -1,4 +1,5 @@
 // ================== AUTH ==================
+// ================== AUTH ==================
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
@@ -12,12 +13,13 @@ if (loginForm) {
     if (email === "admin@gmail.com" && password === "12345") {
       localStorage.setItem("loggedIn", "true");
       localStorage.setItem("userEmail", email);
-      window.location.href = "dashboard.html";
+      window.location.href = "index.html";   // ← HOME PAGE
     } else {
       error.innerText = "Invalid email or password";
     }
   });
 }
+
 
 // ================== PROTECT PAGES ==================
 const protectedPages = ["dashboard.html", "booking.html"];
