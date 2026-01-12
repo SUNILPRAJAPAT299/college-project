@@ -75,3 +75,25 @@ function logout() {
   localStorage.clear();
   window.location.href = "login.html";
 }
+
+
+// ================== HEADER LOGIN STATE ==================
+const nav = document.getElementById("navLinks");
+
+if (nav) {
+  if (localStorage.getItem("loggedIn")) {
+    const email = localStorage.getItem("userEmail");
+    nav.innerHTML = `
+      <span style="color:white;margin-right:15px;">Hi, ${email}</span>
+      <a href="dashboard.html">My Bookings</a>
+      <a href="booking.html">Book Service</a>
+      <a href="#" onclick="logout()">Logout</a>
+    `;
+  } else {
+    nav.innerHTML = `
+      <a href="login.html">Login</a>
+      <a href="booking.html">Book Now</a>
+    `;
+  }
+}
+
