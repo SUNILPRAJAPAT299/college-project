@@ -82,8 +82,10 @@ if (bookingForm) {
     bookings.push(newBooking);
     localStorage.setItem("bookings", JSON.stringify(bookings));
 
-    alert("Booking confirmed!");
-    window.location.href = "dashboard.html";
+    alert("🎉 Booking Confirmed!");
+
+window.location.href = "dashboard.html";
+
   });
 }
 
