@@ -1,3 +1,11 @@
+// ================== AUTO SELECT SERVICE ==================
+const params = new URLSearchParams(window.location.search);
+const selectedService = params.get("service");
+
+if (selectedService && document.getElementById("service")) {
+  document.getElementById("service").value = selectedService;
+}
+
 // ================== AUTH GUARD ==================
 const protectedPages = ["booking.html", "dashboard.html"];
 const page = location.pathname.split("/").pop();
