@@ -1,41 +1,60 @@
-/* LOGIN */
+// ================== AUTH ==================
 const loginForm = document.getElementById("loginForm");
+
 if (loginForm) {
-  loginForm.addEventListener("submit", e => {
+  loginForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    const email = email.value;
-    const password = password.value;
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const error = document.getElementById("error");
 
     if (email === "admin@gmail.com" && password === "12345") {
-      localStorage.setItem("user", email);
+      localStorage.setItem("loggedIn", "true");
+      localStorage.setItem("userEmail", email);
       window.location.href = "dashboard.html";
     } else {
-      document.getElementById("error").innerText = "Invalid credentials";
+      error.innerText = "Invalid email or password";
     }
   });
 }
 
-/* BOOKING */
+// ================== PROTECT PAGES ==================
+const protectedPages = ["dashboard.html", "booking.html"];
+const currentPage = window.location.pathname.split("/").pop();
+
+if (protectedPages.includes(currentPage)) {
+  if (!localStorage.getItem("loggedIn")) {
+    window.location.href = "login.html";
+  }
+}
+
+// ================== BOOKING ==================
 const bookingForm = document.getElementById("bookingForm");
+
 if (bookingForm) {
-  bookingForm.addEventListener("submit", e => {
+  bookingForm.addEventListener("submit", function (e) {
     e.preventDefault();
+
     const booking = {
-      service: service.value,
-      date: date.value,
-      time: time.value,
-      address: address.value
+      service: document.getElementById("service").value,
+      date: document.getElementById("date").value,
+      time: document.getElementById("time").value,
+      address: document.getElementById("address").value
     };
+
     localStorage.setItem("booking", JSON.stringify(booking));
-    alert("Booking Confirmed!");
+    alert("Booking Successful!");
     window.location.href = "dashboard.html";
   });
 }
 
-/* DASHBOARD */
+// ================== DASHBOARD ==================
 const bookingBox = document.getElementById("bookingDetails");
+
 if (bookingBox) {
   const booking = JSON.parse(localStorage.getItem("booking"));
+
   if (booking) {
     bookingBox.innerHTML = `
       <h3>Your Booking</h3>
@@ -44,10 +63,12 @@ if (bookingBox) {
       <p><b>Time:</b> ${booking.time}</p>
       <p><b>Address:</b> ${booking.address}</p>
     `;
+  } else {
+    bookingBox.innerHTML = "<p>No booking yet.</p>";
   }
 }
 
-/* LOGOUT */
+// ================== LOGOUT ==================
 function logout() {
   localStorage.clear();
   window.location.href = "login.html";
