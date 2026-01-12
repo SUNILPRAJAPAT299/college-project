@@ -117,3 +117,14 @@ if (nav) {
   }
 }
 
+// ================== INIT USERS ==================
+if (!localStorage.getItem("users")) {
+  localStorage.setItem(
+    "users",
+    JSON.stringify([
+      { email: "admin@gmail.com", password: "12345", avatar: "🧑‍🔧" },
+      { email: "user@gmail.com", password: "12345", avatar: "👩" }
+    ])
+  );
+}
+
