@@ -84,18 +84,23 @@ if (bookingForm) {
 const bookingBox = document.getElementById("bookingDetails");
 
 if (bookingBox) {
-  const booking = JSON.parse(localStorage.getItem("booking"));
+  const email = localStorage.getItem("currentUser");
+  const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
 
-  if (booking) {
-    bookingBox.innerHTML = `
-      <h3>Your Booking</h3>
-      <p><b>Service:</b> ${booking.service}</p>
-      <p><b>Date:</b> ${booking.date}</p>
-      <p><b>Time:</b> ${booking.time}</p>
-      <p><b>Address:</b> ${booking.address}</p>
-    `;
+  const userBookings = bookings.filter(b => b.user === email);
+
+  if (userBookings.length === 0) {
+    bookingBox.innerHTML = "<p>No bookings yet.</p>";
   } else {
-    bookingBox.innerHTML = "<p>No booking yet.</p>";
+    bookingBox.innerHTML = userBookings.map((b, i) => `
+      <div class="card" style="margin-bottom:15px;">
+        <h3>Order #${i + 1}</h3>
+        <p><b>Service:</b> ${b.service}</p>
+        <p><b>Date:</b> ${b.date}</p>
+        <p><b>Time:</b> ${b.time}</p>
+        <p><b>Status:</b> ${b.status}</p>
+      </div>
+    `).join("");
   }
 }
 
