@@ -37,14 +37,30 @@
 <section class="section">
   <h2>Popular Services</h2>
   <div class="container grid">
-    <div class="card">Plumbing</div>
-    <div class="card">Electrical Repair</div>
-    <div class="card">AC Repair</div>
-    <div class="card">Home Cleaning</div>
-    <div class="card">Painting</div>
-    <div class="card">Pest Control</div>
+
+    <div class="card service-card" onclick="selectService('Plumbing')">
+      <img src="https://i.imgur.com/W8bZQ6x.png">
+      <h3>Plumbing</h3>
+    </div>
+
+    <div class="card service-card" onclick="selectService('AC Repair')">
+      <img src="https://i.imgur.com/4W6G2vX.png">
+      <h3>AC Repair</h3>
+    </div>
+
+    <div class="card service-card" onclick="selectService('Electrical')">
+      <img src="https://i.imgur.com/1B0kI9T.png">
+      <h3>Electrical</h3>
+    </div>
+
+    <div class="card service-card" onclick="selectService('Cleaning')">
+      <img src="https://i.imgur.com/Q6K0RZk.png">
+      <h3>Cleaning</h3>
+    </div>
+
   </div>
 </section>
+
 
 <section class="section">
   <h2>Why Choose FIXTINOW?</h2>
@@ -58,3 +74,10 @@
 
 </body>
 </html>
+
+<script>
+function selectService(service){
+  window.location.href = "booking.html?service=" + encodeURIComponent(service);
+}
+</script>
+
