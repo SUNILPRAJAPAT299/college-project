@@ -7,21 +7,16 @@
 <body>
 
 <div class="container dashboard">
-  <h1>Dashboard</h1>
+  <h1>My Bookings</h1>
 
-  <div class="stats">
-    <div class="stat">Active Booking</div>
-    <div class="stat">Service Status: Pending</div>
+  <div style="margin-bottom:20px;">
+    <a href="index.html" class="btn btn-secondary">⬅ Back to Home</a>
+    <a href="booking.html" class="btn btn-primary">➕ New Booking</a>
+    <button onclick="logout()" class="btn btn-secondary">Logout</button>
   </div>
 
-  <a href="index.html" class="btn btn-secondary">⬅ Back to Home</a>
-<a href="booking.html" class="btn btn-primary">➕ New Booking</a>
-<button onclick="logout()" class="btn btn-secondary">Logout</button>
-
-<br><br>
-
-<div class="booking-box" id="bookingDetails"></div>
-
+  <div id="bookingDetails"></div>
+</div>
 
 <script src="script.js"></script>
 </body>
