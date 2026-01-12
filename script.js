@@ -52,24 +52,33 @@ if (protectedPages.includes(currentPage)) {
 }
 
 // ================== BOOKING ==================
+// ================== BOOKING ==================
 const bookingForm = document.getElementById("bookingForm");
 
 if (bookingForm) {
   bookingForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const booking = {
-      service: document.getElementById("service").value,
-      date: document.getElementById("date").value,
-      time: document.getElementById("time").value,
-      address: document.getElementById("address").value
+    const email = localStorage.getItem("currentUser");
+
+    const newBooking = {
+      user: email,
+      service: service.value,
+      date: date.value,
+      time: time.value,
+      address: address.value,
+      status: "Pending"
     };
 
-    localStorage.setItem("booking", JSON.stringify(booking));
-    alert("Booking Successful!");
+    const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    bookings.push(newBooking);
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+
+    alert("Booking confirmed!");
     window.location.href = "dashboard.html";
   });
 }
+
 
 // ================== DASHBOARD ==================
 const bookingBox = document.getElementById("bookingDetails");
